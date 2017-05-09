@@ -6,12 +6,14 @@
 		<title>第一个vuejs页</title>
 	</head>
 	<body>
-		<div id="app" v-bind:title="message">{{name}}</div>
+		<!--模板语法 直接差值 {{}}-->
+		<div id="app" v-bind:title="message">{{name}}<span v-html="rawHtml"></span></div>
 		<div id="app2" >
 			 <span v-if="seen">{{cont}}</span>
 			 <span v-else="seen">无</span>
 		</div>
-		<div id="app4">
+		<!--v-bind:id 绑定id属性-->
+		<div id="app4" v-bind:id="dynamicId">
 			<ol>
 				<li v-for="item in list">
 					{{ item.text }}
@@ -24,6 +26,7 @@
 		var app=new Vue({
 			 el: '#app',
 			data:{
+				rawHtml:'<li>sdv</li>',//按照html去解析
 				name:'now is:'+new Date(),
 				 message:'提示消息',
 				 seen:true
@@ -43,6 +46,7 @@
 		var app4=new Vue({
 			 el: '#app4',//作用域
 			data:{
+				dynamicId:4,//绑定属性
                  list:[
                  
                  {text:"張三"},{text:"李四"},{text:"王五"},
