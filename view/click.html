@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<title>第一个vuejs页</title>
+	</head>
+	<body>
+		<div id="app" v-bind:title="message">{{message}}
+		
+		<button v-on:click="reverse">消息變化</button>
+		<!--通過v-model綁定对象'-->
+		<input type="" name="" id=""  v-model="message"/>
+		</div>
+		
+
+	</body>
+	<script>
+	//第一个例子 可以通过数据实时改变修改内容
+		var app=new Vue({
+			 el: '#app',
+			data:{
+
+				 message:'提示消息',
+				 seen:true
+			},
+			methods:{
+				
+				reverse:function(){
+					this.message=this.message.split('').reverse().join('');
+				}
+				
+			}
+		})
+		
+		
+	</script>
+</html>

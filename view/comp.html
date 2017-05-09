@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app" >
+		   <ul>
+		   	<!--循环项自定义标签 绑定自定义属性 最好给每个循环项加key区分-->
+		   	  <todo v-for="item in groceryList" v-bind:item="item" :key="item.id"></todo>
+		   	</ul>
+	
+		</div>
+		
+
+	</body>
+	<script>
+	//构建自己的组件
+	Vue.component('todo', {
+  // todo-item 组件现在接受一个
+  // "prop"，类似于一个自定义属性
+  // 这个属性名为 todo。
+  props: ['item'],
+  template: '<li>{{ item.text }}</li>'
+})
+	//任何一个页面都可以看做是组件树
+		var app=new Vue({
+			 el: '#app',
+			data: {
+    groceryList: [
+      { text: '蔬菜' },
+      { text: '奶酪' },
+      { text: '随便其他什么人吃的东西' }
+    ]
+  }
+		})
+		
+		
+	</script>
+</html>

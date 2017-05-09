@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<title>第一个vuejs页</title>
+	</head>
+	<body>
+		<div id="app" v-bind:title="message">{{name}}</div>
+		<div id="app2" >
+			 <span v-if="seen">{{cont}}</span>
+			 <span v-else="seen">无</span>
+		</div>
+		<div id="app4">
+			<ol>
+				<li v-for="item in list">
+					{{ item.text }}
+				</li>
+			</ol>
+		</div>
+	</body>
+	<script>
+	//第一个例子 可以通过数据实时改变修改内容
+		var app=new Vue({
+			 el: '#app',
+			data:{
+				name:'now is:'+new Date(),
+				 message:'提示消息',
+				 seen:true
+			}
+			
+		})
+		//if else控制是否渲染dom
+		var app2=new Vue({
+			 el: '#app2',//作用域
+			data:{
+                 cont:"需要显示的内容",
+				 seen:true
+			}
+			
+		})
+		// for循環便利列表
+		var app4=new Vue({
+			 el: '#app4',//作用域
+			data:{
+                 list:[
+                 
+                 {text:"張三"},{text:"李四"},{text:"王五"},
+                 
+                 ]
+			}
+			
+		})
+		
+	</script>
+</html>
