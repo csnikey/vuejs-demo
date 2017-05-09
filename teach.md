@@ -38,3 +38,6 @@ var vm = new Vue({
 ## 过滤器
 
 
+## 学习教程
+https://cn.vuejs.org/v2/guide/syntax.html
+## 
