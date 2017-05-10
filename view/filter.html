@@ -12,6 +12,9 @@
                  <button @click="check">简化写法@click</button>
                  <label @click="time2">{{time}}</label>
                  <div :class="{active:isc}"></div>
+                 
+                 <!--可以绑定到一个对象上 前者是多个值 后面控制是否显示-->
+                  <div :class="{active:isc2}"></div>
 		</div>
 		
 
@@ -22,6 +25,8 @@
 		var app=new Vue({
 			 el: '#app',
 			data: {
+				active:"active",
+				isc2:false,
 				isc:false,
 				dates:74,
 				message:"是v",//不传值就会报错
