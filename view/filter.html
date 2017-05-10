@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app" >
+		   
+                 {{message|filter}}
+                 <span :id="1">:id</span>
+                 <button @click="check">简化写法@click</button>
+                 <label @click="time2">{{time}}</label>
+                 <div :class="{active:isc}"></div>
+		</div>
+		
+
+	</body>
+	<script>
+	
+	//任何一个页面都可以看做是组件树
+		var app=new Vue({
+			 el: '#app',
+			data: {
+				isc:false,
+				dates:74,
+				message:"是v",//不传值就会报错
+				active:"active",
+    groceryList: [
+      { text: '蔬菜' },
+      { text: '奶酪' },
+      { text: '随便其他什么人吃的东西' }
+    ]
+  },
+  computed:{
+  	
+  	time:function(){
+  		
+  		return new Date();
+  	}
+  	
+  },
+  methods:{
+  	
+  	//虽然执行结果不一样 但用途不同
+  	check:function(){
+  		alert(1);
+  	},
+  	time2:function(){
+  		alert(3);
+  	}
+  	
+  	
+  },
+filters:{
+	
+	filter:function(value){
+		
+		if(!value) return "1";
+		else return value+"!";
+		
+	}
+}
+  
+     
+  
+		})
+		
+		
+	</script>
+</html>

@@ -10,7 +10,14 @@
 		   	<!--循环项自定义标签 绑定自定义属性 最好给每个循环项加key区分-->
 		   	  <todo v-for="item in groceryList" v-bind:item="item" :key="item.id"></todo>
 		   	</ul>
-	
+	         <div v-bind:class="'demo'">
+	                 demo	
+	         </div>
+	           <div v-bind:class="active+1">
+	                 {{active+active}} is good	
+	         </div>
+	         <span v-on:click.prevent="alert(1)">alert</span>
+	         <input type="radio" v-on:click.prevent="check" />
 		</div>
 		
 
@@ -28,12 +35,27 @@
 		var app=new Vue({
 			 el: '#app',
 			data: {
+				active:"active",
     groceryList: [
       { text: '蔬菜' },
       { text: '奶酪' },
       { text: '随便其他什么人吃的东西' }
     ]
+  },
+  //方法也是对象的模型
+  methods:{
+  	alert:function(i){
+  		
+  		alert(i)
+  	},
+  	check:function(){
+  	alert(1)//可以用prevent方法来手动改写单选多选的样式控制
+  	}
+  	
   }
+  
+     
+  
 		})
 		
 		
